@@ -317,11 +317,22 @@
         .branding-section { padding: 120px 8%; background-color: var(--charcoal-light); position: relative; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .branding-visual-wrapper { display: flex; justify-content: center; align-items: center; padding: 20px; }
         .mobile-mockup { width: 320px; height: 620px; background: var(--obsidian); border-radius: 40px; border: 12px solid var(--charcoal); box-shadow: 0 40px 80px rgba(0,0,0,0.9), 0 0 50px var(--gold-glow); position: relative; overflow: hidden; }
-        .mockup-inner-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); transition: var(--transition-smooth); }
-        .mobile-mockup:hover .mockup-inner-img { filter: brightness(1.1); transform: scale(1.05); }
-        .mockup-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 25px 30px 25px; background: linear-gradient(to top, rgba(10,10,10,0.95) 20%, transparent); display: flex; flex-direction: column; gap: 15px; z-index: 2; }
-        .mockup-header { display: flex; align-items: center; gap: 10px; color: var(--pure-white); font-weight: 600; font-family: var(--font-body); font-size: 15px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
+        .mockup-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 25px 30px 25px; background: linear-gradient(to top, rgba(10,10,10,0.95) 30%, transparent); display: flex; flex-direction: column; gap: 15px; z-index: 2; }
         .mockup-btn { background: var(--gold); color: var(--obsidian); padding: 15px; text-align: center; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+
+        /* UI Falsa de Instagram */
+        .ig-mockup-ui { width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; color: var(--pure-white); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .ig-topbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; font-weight: 600; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ig-stats { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .ig-avatar { width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--gold); padding: 2px; }
+        .ig-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .ig-stat { text-align: center; font-size: 11px; display: flex; flex-direction: column; color: var(--silver-text); }
+        .ig-stat span { font-weight: bold; font-size: 15px; color: var(--pure-white); }
+        .ig-bio { padding: 0 20px 15px 20px; font-size: 12px; line-height: 1.5; color: var(--silver-text); }
+        .ig-bio strong { font-size: 13px; color: var(--pure-white); }
+        .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; flex-grow: 1; align-content: start; }
+        .ig-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; filter: brightness(0.85); transition: var(--transition-smooth); }
+        .ig-grid img:hover { filter: brightness(1.1); }
 
         /* ==========================================================================
            7.5. BANNER DE ANUNCIO & DEPARTAMENTOS
@@ -608,10 +619,35 @@
             </div>
             <div class="branding-visual-wrapper reveal" style="transition-delay: 0.2s;">
                 <div class="mobile-mockup floating-img">
-                    <!-- Imagen de médico estético / estética premium para el celular -->
-                    <img src="https://images.pexels.com/photos/5082567/pexels-photo-5082567.jpeg?auto=compress&cs=tinysrgb&w=600&q=80" alt="Instagram and Landing Page Mobile view" class="mockup-inner-img">
+                    <!-- Interfaz de Perfil de Instagram Premium -->
+                    <div class="ig-mockup-ui">
+                        <div class="ig-topbar">
+                            <i class="fa-solid fa-lock" style="font-size:12px;"></i>
+                            <span>tu.clinica.premium</span>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                        <div class="ig-stats">
+                            <div class="ig-avatar"><img src="https://images.pexels.com/photos/5082567/pexels-photo-5082567.jpeg?auto=compress&cs=tinysrgb&w=150&q=80" alt="Avatar Médico"></div>
+                            <div class="ig-stat"><span>342</span>Public.</div>
+                            <div class="ig-stat"><span>18.5k</span>Seguid.</div>
+                            <div class="ig-stat"><span>124</span>Seguidos</div>
+                        </div>
+                        <div class="ig-bio">
+                            <strong>Clínica Estética Premium</strong><br>
+                            ✨ Especialistas en Armonización Facial<br>
+                            🥇 Resultados naturales y elegantes<br>
+                            👇 Agenda tu valoración aquí
+                        </div>
+                        <div class="ig-grid">
+                            <img src="https://images.pexels.com/photos/3775534/pexels-photo-3775534.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 1">
+                            <img src="https://images.pexels.com/photos/3845558/pexels-photo-3845558.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 2">
+                            <img src="https://images.pexels.com/photos/3985304/pexels-photo-3985304.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 3">
+                            <img src="https://images.pexels.com/photos/5082567/pexels-photo-5082567.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 4">
+                            <img src="https://images.pexels.com/photos/3736780/pexels-photo-3736780.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 5">
+                            <img src="https://images.pexels.com/photos/5938352/pexels-photo-5938352.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 6">
+                        </div>
+                    </div>
                     <div class="mockup-overlay">
-                        <div class="mockup-header"><i class="fa-brands fa-instagram" style="color:var(--gold); font-size:22px;"></i> <span>@tu.clinica.premium</span></div>
                         <div class="mockup-btn">Agendar Cita en WhatsApp</div>
                     </div>
                 </div>
