@@ -15,18 +15,18 @@
 
     <style>
         /* ==========================================================================
-           1. CORE VARIABLES & STYLES (Scalia Agency Palette)
+           1. CORE VARIABLES & STYLES (Medical Premium Palette)
            ========================================================================== */
         :root {
-            /* Paleta Tech-Luxury para Scalia */
-            --gold: #D4AF37; /* Dorado para el toque de alto valor */
-            --gold-dark: #AA8C2C;
-            --gold-light: #F3E5AB;
-            --gold-glow: rgba(212, 175, 55, 0.4);
+            /* Paleta Medical Premium (Mantenemos nombres de variables por compatibilidad) */
+            --gold: #00B4D8; /* Acento Principal: Cyan Médico / Aqua */
+            --gold-dark: #0077B6;
+            --gold-light: #90E0EF;
+            --gold-glow: rgba(0, 180, 216, 0.4);
             
-            --obsidian: #0A0A0A; /* Negro profundo corporativo */
-            --charcoal: #141414;
-            --charcoal-light: #1F1F1F;
+            --obsidian: #081121; /* Azul Marino Muy Oscuro (Navy Base) */
+            --charcoal: #0F1A30; /* Azul Marino Medio */
+            --charcoal-light: #162445; /* Azul Marino Claro */
             
             --silver-text: #E0E0E0;
             --pure-white: #FFFFFF;
@@ -103,6 +103,8 @@
             animation: floatComplex 6s ease-in-out infinite;
             box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px var(--gold-glow);
             border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0, 180, 216, 0.2);
+            border: 1px solid rgba(0, 180, 216, 0.2);
         }
 
         .rotating-aura {
@@ -129,6 +131,10 @@
             from { transform: scale(1.12); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
+        @keyframes glassShine {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition-smooth); }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -141,7 +147,11 @@
             text-align: center; font-size: 11px; letter-spacing: 2px;
             padding: 8px 20px; font-weight: 500; text-transform: uppercase;
             position: relative; z-index: 1001; border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative; z-index: 1001; border-bottom: 1px solid rgba(0, 180, 216, 0.2);
         }
+        
+        .countdown-wrapper { display: inline-block; margin-left: 15px; color: var(--silver-text); text-transform: none; }
+        .countdown-timer { color: var(--gold); font-weight: 700; font-family: var(--font-display); letter-spacing: 1px; }
 
         header {
             position: fixed; top: 0; left: 0; width: 100%; transform: translateY(33px);
@@ -153,6 +163,7 @@
             transform: translateY(0); padding: 15px 40px; background-color: var(--glass-bg);
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(0, 180, 216, 0.1);
         }
 
         .logo-container { display: flex; flex-direction: column; text-decoration: none; max-width: 100%; }
@@ -208,6 +219,8 @@
             width: 100%; height: 100%; object-fit: cover; object-position: center;
             animation: scaleOuter 20s ease-out infinite alternate; position: absolute;
             opacity: 0.6;
+            position: absolute; opacity: 0.6; transform: scale(1.1);
+            transform-origin: center;
         }
 
         .hero-overlay {
@@ -251,6 +264,7 @@
            5. TRUST BAR (MÉTRICAS DE AGENCIA)
            ========================================================================== */
         .trust-bar { background-color: var(--charcoal); padding: 40px 0; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); overflow: hidden; display: flex; flex-wrap: nowrap; }
+        .trust-bar { background-color: var(--charcoal); padding: 40px 0; border-top: 1px solid rgba(0, 180, 216, 0.1); border-bottom: 1px solid rgba(0, 180, 216, 0.1); overflow: hidden; display: flex; flex-wrap: nowrap; }
         .marquee-wrapper { display: flex; width: max-content; }
         .marquee-content { display: flex; width: max-content; animation: scrollMarquee 25s linear infinite; }
         .trust-item { text-align: center; padding: 0 50px; }
@@ -301,6 +315,9 @@
         }
         .premium-card:hover { transform: translateY(-15px) rotateX(5deg) rotateY(-5deg); border-color: var(--gold); box-shadow: -20px 30px 50px rgba(0,0,0,0.8), 0 0 30px var(--gold-glow); z-index: 10; }
         
+        .premium-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); z-index: 5; pointer-events: none; }
+        .premium-card:hover::before { animation: glassShine 0.8s ease-in-out forwards; }
+        
         .card-img-container { width: 100%; height: 250px; overflow: hidden; position: relative; }
         .card-img-container::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(0deg, var(--obsidian) 0%, rgba(10,10,10,0) 80%); }
         .premium-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; filter: grayscale(30%); }
@@ -346,6 +363,7 @@
         .dept-card { background: var(--charcoal); padding: 50px 30px; border-radius: 4px; text-align: center; border: 1px solid rgba(255,255,255,0.02); transition: var(--transition-smooth); }
         .dept-card:hover { transform: translateY(-15px); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.6); background: var(--charcoal-light); }
         .dept-icon { font-size: 38px; color: var(--gold); margin-bottom: 25px; display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: rgba(212,175,55,0.05); border-radius: 50%; border: 1px solid rgba(212,175,55,0.2); }
+        .dept-icon { font-size: 38px; color: var(--gold); margin-bottom: 25px; display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: rgba(0,180,216,0.05); border-radius: 50%; border: 1px solid rgba(0,180,216,0.2); }
         .dept-card h4 { font-family: var(--font-display); font-size: 20px; color: var(--pure-white); margin-bottom: 15px; }
         .dept-card p { font-size: 14px; color: var(--silver-text); line-height: 1.6; }
 
@@ -364,6 +382,7 @@
            9. EMBUDO B2B (CAPTURACIÓN DE CLÍNICAS)
            ========================================================================== */
         .booking-section { padding: 120px 8%; background: linear-gradient(135deg, var(--charcoal) 0%, var(--obsidian) 100%); color: var(--pure-white); border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .booking-section { padding: 120px 8%; background: linear-gradient(135deg, var(--charcoal) 0%, var(--obsidian) 100%); color: var(--pure-white); border-top: 1px solid rgba(0, 180, 216, 0.2); }
         .booking-container-split { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
         
         .booking-card-form { background-color: var(--charcoal-light); padding: 60px 50px; box-shadow: 0 40px 80px rgba(0,0,0,0.8); border-radius: 4px; border-top: 4px solid var(--gold); }
@@ -372,6 +391,7 @@
         .luxury-input { background-color: var(--obsidian); border: 1px solid rgba(255,255,255,0.1); padding: 18px 20px; font-family: var(--font-body); font-size: 14px; width: 100%; transition: var(--transition-smooth); border-radius: 0; color: var(--pure-white); }
         .luxury-input:focus { border-color: var(--gold); box-shadow: 0 5px 20px var(--gold-glow); }
         .luxury-input.select-input { cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 20px center; background-size: 12px auto; }
+        .luxury-input.select-input { cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300B4D8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 20px center; background-size: 12px auto; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         
         .submit-luxury-btn { font-family: var(--font-body); background: var(--gold); color: var(--obsidian); border: none; padding: 22px; width: 100%; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; transition: var(--transition-smooth); margin-top: 20px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; }
@@ -388,6 +408,7 @@
         .cal-day.disabled { opacity: 0.2; cursor: not-allowed; }
         .time-slots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
         .time-slot { border: 1px solid rgba(212,175,55,0.5); color: var(--gold); text-align: center; padding: 12px; font-size: 13px; cursor: pointer; transition: var(--transition-smooth); font-weight: 600; }
+        .time-slot { border: 1px solid rgba(0, 180, 216, 0.5); color: var(--gold); text-align: center; padding: 12px; font-size: 13px; cursor: pointer; transition: var(--transition-smooth); font-weight: 600; }
         .time-slot:hover, .time-slot.active { background: var(--gold); color: var(--obsidian); }
 
         /* ==========================================================================
@@ -405,6 +426,21 @@
         /* Botón Flotante WhatsApp */
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 20px rgba(37,211,102,0.4); z-index: 999; text-decoration: none; transition: transform 0.3s; }
         .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* ==========================================================================
+           10.5. LEAD MAGNET POPUP
+           ========================================================================== */
+        .lead-popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 3000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: var(--transition-smooth); }
+        .lead-popup-overlay.active { opacity: 1; visibility: visible; }
+        .lead-popup-content { background: var(--obsidian); border: 1px solid var(--gold); border-radius: 4px; width: 90%; max-width: 500px; padding: 40px; position: relative; text-align: center; transform: translateY(30px) scale(0.95); transition: var(--transition-smooth); box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 30px var(--gold-glow); }
+        .lead-popup-overlay.active .lead-popup-content { transform: translateY(0) scale(1); }
+        .close-popup { position: absolute; top: 15px; right: 20px; font-size: 24px; color: var(--silver-text); cursor: pointer; transition: color 0.3s; background: none; border: none; }
+        .close-popup:hover { color: var(--gold); }
+        .popup-icon { font-size: 40px; color: var(--gold); margin-bottom: 20px; }
+        .popup-title { font-family: var(--font-display); font-size: 24px; color: var(--pure-white); margin-bottom: 10px; }
+        .popup-text { font-size: 14px; color: var(--silver-text); margin-bottom: 25px; }
+        .popup-input { background: var(--charcoal); border: 1px solid rgba(255,255,255,0.1); padding: 15px; width: 100%; color: var(--pure-white); margin-bottom: 15px; font-family: var(--font-body); }
+        .popup-input:focus { border-color: var(--gold); outline: none; }
 
         /* ==========================================================================
            11. RESPONSIVE DESIGN ABSOLUTO
@@ -428,6 +464,7 @@
 
         @media (max-width: 768px) {
             .top-announcement { padding: 12px 15px; font-size: 9px; line-height: 1.4; }
+            .countdown-wrapper { display: block; margin-left: 0; margin-top: 4px; }
             header { padding: 15px 20px; width: 100%; transform: translateY(48px); }
             header.scrolled { padding: 12px 20px; transform: translateY(0); }
             .logo-main { font-size: 24px; letter-spacing: 2px; }
@@ -483,6 +520,7 @@
 
     <div class="top-announcement">
         <span class="shimmer-text">Partner Exclusivo para Clínicas Estéticas de Alto Nivel</span>
+        <span class="countdown-wrapper">| Cupos se cierran en: <span class="countdown-timer" id="top-countdown">02:00:00</span></span>
     </div>
 
     <header id="main-header">
@@ -505,6 +543,8 @@
         <div class="hero-bg-wrapper">
             <!-- Imagen Pexels B2B Moderna/Datos -->
             <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80" class="hero-bg-image" alt="Scalia Agency">
+            <!-- Imagen Pexels Clínica Moderna / Médica -->
+            <img src="https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80" class="hero-bg-image" alt="Clínica Médica Tecnológica">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -797,6 +837,20 @@
     <!-- Botón Flotante WhatsApp para contacto directo B2B -->
     <a href="#" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
+    <!-- LEAD MAGNET POPUP -->
+    <div class="lead-popup-overlay" id="lead-popup">
+        <div class="lead-popup-content">
+            <button class="close-popup" id="close-popup"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-icon"><i class="fa-solid fa-book-medical"></i></div>
+            <h3 class="popup-title">Guía Definitiva 2026</h3>
+            <p class="popup-text">Descarga el manual exacto que usamos para escalar clínicas de Medicina Estética a +$50,000 USD/mes.</p>
+            <form action="#" onsubmit="event.preventDefault(); alert('¡Guía enviada a tu correo!'); document.getElementById('lead-popup').classList.remove('active');">
+                <input type="email" class="popup-input luxury-input" placeholder="Tu correo electrónico profesional" required>
+                <button type="submit" class="submit-luxury-btn" style="margin-top: 0;">Descargar Gratis <i class="fa-solid fa-download"></i></button>
+            </form>
+        </div>
+    </div>
+
     <!-- SCRIPTS -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -830,6 +884,7 @@
                     el.addEventListener('mouseenter', () => {
                         cursorOutline.style.width = '60px'; cursorOutline.style.height = '60px';
                         cursorOutline.style.backgroundColor = 'rgba(212, 175, 55, 0.1)';
+                        cursorOutline.style.backgroundColor = 'rgba(0, 180, 216, 0.1)';
                     });
                     el.addEventListener('mouseleave', () => {
                         cursorOutline.style.width = '40px'; cursorOutline.style.height = '40px';
@@ -885,6 +940,49 @@
                     document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('active'));
                     this.classList.add('active');
                 });
+            });
+
+            // 7. Lead Magnet Popup (5 seconds delay)
+            setTimeout(() => {
+                document.getElementById('lead-popup').classList.add('active');
+            }, 5000);
+
+            document.getElementById('close-popup').addEventListener('click', () => {
+                document.getElementById('lead-popup').classList.remove('active');
+            });
+
+            // 8. Contador Regresivo (2 Horas de escasez real)
+            function startCountdown() {
+                const countdownEl = document.getElementById('top-countdown');
+                if (!countdownEl) return;
+                
+                let endTime = localStorage.getItem('scalia_countdown_end');
+                if (!endTime) {
+                    endTime = new Date().getTime() + (2 * 60 * 60 * 1000); // 2 Horas
+                    localStorage.setItem('scalia_countdown_end', endTime);
+                }
+                
+                const updateTimer = setInterval(() => {
+                    const distance = endTime - new Date().getTime();
+                    if (distance < 0) { clearInterval(updateTimer); countdownEl.innerHTML = "00:00:00"; return; }
+                    
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    countdownEl.innerHTML = String(hours).padStart(2, '0') + ":" + String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+                }, 1000);
+            }
+            startCountdown();
+
+            // 9. Parallax Effect para el Hero
+            const heroBg = document.querySelector('.hero-bg-image');
+            window.addEventListener('scroll', () => {
+                if (heroBg) {
+                    const scrollPos = window.pageYOffset;
+                    // Movemos la imagen a una velocidad distinta al scroll manteniendo su escala
+                    heroBg.style.transform = `translateY(${scrollPos * 0.4}px) scale(1.1)`;
+                }
             });
         });
     </script>
