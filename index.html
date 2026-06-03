@@ -250,10 +250,13 @@
         /* ==========================================================================
            5. TRUST BAR (MÉTRICAS DE AGENCIA)
            ========================================================================== */
-        .trust-bar { background-color: var(--charcoal); padding: 50px 8%; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
-        .trust-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
-        .trust-item h3 { font-family: var(--font-display); font-size: 38px; color: var(--pure-white); font-weight: 600; }
-        .trust-item p { font-family: var(--font-body); color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
+        .trust-bar { background-color: var(--charcoal); padding: 40px 0; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); overflow: hidden; position: relative; display: flex; }
+        .marquee-wrapper { display: flex; width: 200%; }
+        .marquee-content { display: flex; width: 50%; justify-content: space-around; animation: scrollMarquee 20s linear infinite; align-items: center; }
+        .trust-item { text-align: center; padding: 0 40px; }
+        .trust-item h3 { font-family: var(--font-display); font-size: 34px; color: var(--pure-white); font-weight: 600; white-space: nowrap; }
+        .trust-item p { font-family: var(--font-body); color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; white-space: nowrap; }
+        @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
         /* ==========================================================================
            6. FILOSOFÍA / EL PROBLEMA
@@ -309,6 +312,21 @@
         .card-body-content p { font-family: var(--font-body); color: var(--silver-text); font-size: 14px; margin-bottom: 20px; }
 
         /* ==========================================================================
+           7.5. BANNER DE ANUNCIO & DEPARTAMENTOS
+           ========================================================================== */
+        .promo-banner { background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark)); padding: 35px 5%; text-align: center; color: var(--obsidian); box-shadow: 0 10px 40px var(--gold-glow); position: relative; z-index: 10; }
+        .promo-banner h3 { font-family: var(--font-display); font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; }
+        .promo-banner p { font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 1px; margin-top: 5px; }
+
+        .departments-section { padding: 120px 8%; background-color: var(--obsidian); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .dept-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1300px; margin: 60px auto 0 auto; }
+        .dept-card { background: var(--charcoal); padding: 50px 30px; border-radius: 4px; text-align: center; border: 1px solid rgba(255,255,255,0.02); transition: var(--transition-smooth); }
+        .dept-card:hover { transform: translateY(-15px); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.6); background: var(--charcoal-light); }
+        .dept-icon { font-size: 38px; color: var(--gold); margin-bottom: 25px; display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: rgba(212,175,55,0.05); border-radius: 50%; border: 1px solid rgba(212,175,55,0.2); }
+        .dept-card h4 { font-family: var(--font-display); font-size: 20px; color: var(--pure-white); margin-bottom: 15px; }
+        .dept-card p { font-size: 14px; color: var(--silver-text); line-height: 1.6; }
+
+        /* ==========================================================================
            8. METODOLOGÍA SCALIA
            ========================================================================== */
         .process-section { padding: 120px 8%; background-color: var(--obsidian); }
@@ -332,6 +350,19 @@
         
         .submit-luxury-btn { font-family: var(--font-body); background: var(--gold); color: var(--obsidian); border: none; padding: 22px; width: 100%; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; transition: var(--transition-smooth); margin-top: 20px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; }
         .submit-luxury-btn:hover { background: var(--pure-white); box-shadow: 0 15px 30px var(--gold-glow); }
+
+        /* Sistema de Calendario Interactivo */
+        .scheduling-ui { background: var(--obsidian); border: 1px solid rgba(255,255,255,0.1); padding: 25px; margin-bottom: 25px; }
+        .calendar-head { display: flex; justify-content: space-between; color: var(--pure-white); margin-bottom: 20px; font-weight: 600; font-size: 15px; }
+        .calendar-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; font-size: 11px; color: var(--silver-text); margin-bottom: 10px; font-weight: 600; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+        .cal-day { padding: 12px 0; text-align: center; background: var(--charcoal); color: var(--silver-text); font-size: 13px; cursor: pointer; transition: var(--transition-smooth); border: 1px solid transparent; }
+        .cal-day:hover:not(.disabled) { border-color: var(--gold); color: var(--gold); }
+        .cal-day.active { background: var(--gold); color: var(--obsidian); font-weight: bold; }
+        .cal-day.disabled { opacity: 0.2; cursor: not-allowed; }
+        .time-slots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .time-slot { border: 1px solid rgba(212,175,55,0.5); color: var(--gold); text-align: center; padding: 12px; font-size: 13px; cursor: pointer; transition: var(--transition-smooth); font-weight: 600; }
+        .time-slot:hover, .time-slot.active { background: var(--gold); color: var(--obsidian); }
 
         /* ==========================================================================
            10. FOOTER SCALIA
@@ -365,8 +396,8 @@
             .cards-container-grid { grid-template-columns: repeat(2, 1fr); }
             .process-grid { grid-template-columns: 1fr; gap: 30px; }
             .booking-container-split { grid-template-columns: 1fr; }
-            .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .footer-main-grid { grid-template-columns: 1fr; gap: 40px; }
+            .dept-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -388,6 +419,8 @@
             .booking-card-form { padding: 40px 20px; }
             .form-row { grid-template-columns: 1fr; }
             .footer-bottom-bar { flex-direction: column; text-align: center; gap: 15px; }
+            .dept-grid { grid-template-columns: 1fr; }
+            .promo-banner h3 { font-size: 20px; }
         }
     </style>
 </head>
@@ -437,11 +470,23 @@
 
     <!-- BARRA DE AUTORIDAD (AGENCY METRICS) -->
     <section class="trust-bar">
-        <div class="trust-grid">
-            <div class="trust-item reveal"><h3>Exclusivo</h3><p>Clínicas Estéticas</p></div>
-            <div class="trust-item reveal" style="transition-delay: 0.1s;"><h3>Data-Driven</h3><p>Business Intelligence</p></div>
-            <div class="trust-item reveal" style="transition-delay: 0.2s;"><h3>Premium</h3><p>UI / UX Branding</p></div>
-            <div class="trust-item reveal" style="transition-delay: 0.3s;"><h3>100%</h3><p>Automatización</p></div>
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <!-- Set 1 -->
+                <div class="trust-item"><h3>Exclusivo</h3><p>Clínicas Estéticas</p></div>
+                <div class="trust-item"><h3>Data-Driven</h3><p>Business Intelligence</p></div>
+                <div class="trust-item"><h3>Premium</h3><p>UI / UX Branding</p></div>
+                <div class="trust-item"><h3>100%</h3><p>Automatización</p></div>
+                <div class="trust-item"><h3>Alto Ticket</h3><p>Pacientes Calificados</p></div>
+            </div>
+            <div class="marquee-content">
+                <!-- Set 2 (Duplicado para scroll infinito) -->
+                <div class="trust-item"><h3>Exclusivo</h3><p>Clínicas Estéticas</p></div>
+                <div class="trust-item"><h3>Data-Driven</h3><p>Business Intelligence</p></div>
+                <div class="trust-item"><h3>Premium</h3><p>UI / UX Branding</p></div>
+                <div class="trust-item"><h3>100%</h3><p>Automatización</p></div>
+                <div class="trust-item"><h3>Alto Ticket</h3><p>Pacientes Calificados</p></div>
+            </div>
         </div>
     </section>
 
@@ -510,6 +555,30 @@
         </div>
     </section>
 
+    <!-- BANNER PROMOCIONAL -->
+    <section class="promo-banner reveal">
+        <h3>Atención: Cupos Limitados</h3>
+        <p>Solo aceptamos 5 nuevas clínicas por trimestre para garantizar resultados excepcionales.</p>
+    </section>
+
+    <!-- DEPARTAMENTOS (EL ESCUADRÓN SCALIA) -->
+    <section class="departments-section">
+        <div class="treatment-center-head reveal" style="margin-bottom: 40px;">
+            <span class="section-header-tag" style="color: var(--gold)">Nuestra Estructura</span>
+            <h2 class="section-main-title">El Escuadrón <span class="shimmer-text">Operativo</span></h2>
+        </div>
+        <div class="dept-grid">
+            <div class="dept-card reveal"><div class="dept-icon"><i class="fa-solid fa-rocket"></i></div>
+                <h4>Growth & Ads</h4><p>Especialistas en compra de tráfico, segmentación algorítmica y reducción de CAC en Meta y Google Ads.</p></div>
+            <div class="dept-card reveal" style="transition-delay: 0.2s;"><div class="dept-icon"><i class="fa-solid fa-code"></i></div>
+                <h4>Desarrollo & UI</h4><p>Ingenieros enfocados en crear Landing Pages veloces, seguras y psicológicamente persuasivas.</p></div>
+            <div class="dept-card reveal" style="transition-delay: 0.4s;"><div class="dept-icon"><i class="fa-solid fa-database"></i></div>
+                <h4>Data Science</h4><p>Analistas de BI que trackean cada centavo invertido para escalar las campañas basadas en matemáticas reales.</p></div>
+            <div class="dept-card reveal" style="transition-delay: 0.6s;"><div class="dept-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <h4>Consultoría</h4><p>Asesores B2B que auditan tu proceso de ventas interno para asegurar que tu equipo cierre a los leads.</p></div>
+        </div>
+    </section>
+
     <!-- METODOLOGÍA -->
     <section class="process-section" id="metodo">
         <div class="treatment-center-head reveal">
@@ -554,6 +623,28 @@
                 <!-- Formulario estructurado para B2B (Filtro de clientes) -->
                 <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Solicitud recibida! Analizaremos tus datos y te contactaremos para agendar la llamada de descubrimiento.');">
                     <div style="display:flex; flex-direction:column; gap:20px;">
+                        
+                        <!-- UI de Agendamiento / Calendario -->
+                        <div class="scheduling-ui">
+                            <div class="calendar-head">
+                                <span><i class="fa-regular fa-calendar" style="color:var(--gold); margin-right:8px;"></i> Selecciona una Fecha</span>
+                                <span style="color:var(--gold);">Siguiente <i class="fa-solid fa-chevron-right"></i></span>
+                            </div>
+                            <div class="calendar-days"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+                            <div class="calendar-grid">
+                                <div class="cal-day disabled">12</div><div class="cal-day disabled">13</div>
+                                <div class="cal-day disabled">14</div><div class="cal-day">15</div>
+                                <div class="cal-day active">16</div><div class="cal-day">17</div>
+                                <div class="cal-day disabled">18</div>
+                            </div>
+                            <div class="time-slots">
+                                <div class="time-slot">10:00 AM</div>
+                                <div class="time-slot active">02:30 PM</div>
+                                <div class="time-slot">04:00 PM</div>
+                                <div class="time-slot">05:15 PM</div>
+                            </div>
+                        </div>
+
                         <div><input type="text" class="luxury-input" placeholder="Tu Nombre y Cargo (Ej. Dr. Pérez - Director)" required></div>
                         <div class="form-row">
                             <input type="text" class="luxury-input" placeholder="Nombre de la Clínica" required>
@@ -677,6 +768,20 @@
                     });
                 });
             }
+
+            // 6. Interactive Calendar UI
+            document.querySelectorAll('.cal-day:not(.disabled)').forEach(day => {
+                day.addEventListener('click', function() {
+                    document.querySelectorAll('.cal-day').forEach(d => d.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.addEventListener('click', function() {
+                    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
         });
     </script>
 </body>
