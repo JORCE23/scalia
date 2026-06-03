@@ -154,7 +154,7 @@
         .countdown-timer { color: var(--gold); font-weight: 700; font-family: var(--font-display); letter-spacing: 1px; }
 
         header {
-            position: fixed; top: 0; left: 0; width: 100%; transform: translateY(33px);
+            position: fixed; top: 0; left: 0; width: 100%; transform: translateY(38px);
             padding: 20px 60px; display: flex; justify-content: space-between;
             align-items: center; z-index: 1000; transition: var(--transition-smooth);
         }
@@ -266,11 +266,16 @@
         .trust-bar { background-color: var(--charcoal); padding: 40px 0; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); overflow: hidden; display: flex; flex-wrap: nowrap; }
         .trust-bar { background-color: var(--charcoal); padding: 40px 0; border-top: 1px solid rgba(0, 180, 216, 0.1); border-bottom: 1px solid rgba(0, 180, 216, 0.1); overflow: hidden; display: flex; flex-wrap: nowrap; }
         .marquee-wrapper { display: flex; width: max-content; }
-        .marquee-content { display: flex; width: max-content; animation: scrollMarquee 25s linear infinite; }
+        .marquee-content { display: flex; width: max-content; animation: scrollMarquee 45s linear infinite; align-items: center; }
         .trust-item { text-align: center; padding: 0 50px; }
         .trust-item h3 { font-family: var(--font-display); font-size: 34px; color: var(--pure-white); font-weight: 600; white-space: nowrap; }
         .trust-item p { font-family: var(--font-body); color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; white-space: nowrap; }
         @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+        .trust-testimonial { padding: 0 50px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-left: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); margin: 0 15px; }
+        .trust-testimonial i { color: var(--gold); font-size: 14px; margin-bottom: 5px; }
+        .trust-testimonial .test-text { font-family: var(--font-display); font-size: 18px; color: var(--pure-white); font-weight: 400; white-space: nowrap; font-style: italic; }
+        .trust-testimonial .test-author { font-family: var(--font-body); color: var(--silver-text); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; white-space: nowrap; }
 
         /* ==========================================================================
            6. FILOSOFÍA / EL PROBLEMA
@@ -465,7 +470,7 @@
         @media (max-width: 768px) {
             .top-announcement { padding: 12px 15px; font-size: 9px; line-height: 1.4; }
             .countdown-wrapper { display: block; margin-left: 0; margin-top: 4px; }
-            header { padding: 15px 20px; width: 100%; transform: translateY(48px); }
+            header { padding: 15px 20px; width: 100%; transform: translateY(65px); }
             header.scrolled { padding: 12px 20px; transform: translateY(0); }
             .logo-main { font-size: 24px; letter-spacing: 2px; }
             .logo-sub { font-size: 7px; letter-spacing: 3px; }
@@ -493,6 +498,10 @@
             .trust-item h3 { font-size: 24px; }
             .trust-item p { font-size: 9px; }
             
+            .trust-testimonial { padding: 0 25px; margin: 0 5px; }
+            .trust-testimonial .test-text { font-size: 14px; }
+            .trust-testimonial .test-author { font-size: 8px; }
+
             .booking-card-form { padding: 35px 20px; }
             .form-title { font-size: 22px; }
             .form-row { grid-template-columns: 1fr; gap: 15px; }
@@ -563,17 +572,21 @@
             <div class="marquee-content">
                 <!-- Set 1 -->
                 <div class="trust-item"><h3>Exclusivo</h3><p>Clínicas Estéticas</p></div>
+                <div class="trust-testimonial"><i class="fa-solid fa-quote-left"></i><p class="test-text">"Pasamos de $5k a $20k USD al mes."</p><p class="test-author">- Dra. Elena R.</p></div>
                 <div class="trust-item"><h3>Data-Driven</h3><p>Business Intelligence</p></div>
+                <div class="trust-testimonial"><i class="fa-solid fa-quote-left"></i><p class="test-text">"Mi agenda está llena a 3 semanas."</p><p class="test-author">- Dr. Carlos M.</p></div>
                 <div class="trust-item"><h3>Premium</h3><p>UI / UX Branding</p></div>
-                <div class="trust-item"><h3>100%</h3><p>Automatización</p></div>
+                <div class="trust-testimonial"><i class="fa-solid fa-quote-left"></i><p class="test-text">"Dejamos de depender de referidos."</p><p class="test-author">- Clínica Dermia</p></div>
                 <div class="trust-item"><h3>Alto Ticket</h3><p>Pacientes Calificados</p></div>
             </div>
             <div class="marquee-content">
                 <!-- Set 2 (Duplicado para scroll infinito) -->
                 <div class="trust-item"><h3>Exclusivo</h3><p>Clínicas Estéticas</p></div>
+                <div class="trust-testimonial"><i class="fa-solid fa-quote-left"></i><p class="test-text">"Pasamos de $5k a $20k USD al mes."</p><p class="test-author">- Dra. Elena R.</p></div>
                 <div class="trust-item"><h3>Data-Driven</h3><p>Business Intelligence</p></div>
+                <div class="trust-testimonial"><i class="fa-solid fa-quote-left"></i><p class="test-text">"Mi agenda está llena a 3 semanas."</p><p class="test-author">- Dr. Carlos M.</p></div>
                 <div class="trust-item"><h3>Premium</h3><p>UI / UX Branding</p></div>
-                <div class="trust-item"><h3>100%</h3><p>Automatización</p></div>
+                <div class="trust-testimonial"><i class="fa-solid fa-quote-left"></i><p class="test-text">"Dejamos de depender de referidos."</p><p class="test-author">- Clínica Dermia</p></div>
                 <div class="trust-item"><h3>Alto Ticket</h3><p>Pacientes Calificados</p></div>
             </div>
         </div>
@@ -667,7 +680,7 @@
                             <i class="fa-solid fa-bars"></i>
                         </div>
                         <div class="ig-stats">
-                            <div class="ig-avatar"><img src="https://images.pexels.com/photos/5082567/pexels-photo-5082567.jpeg?auto=compress&cs=tinysrgb&w=150&q=80" alt="Avatar Médico"></div>
+                            <div class="ig-avatar"><img src="https://images.pexels.com/photos/5207034/pexels-photo-5207034.jpeg?auto=compress&cs=tinysrgb&w=150&q=80" alt="Avatar Médico"></div>
                             <div class="ig-stat"><span>342</span>Public.</div>
                             <div class="ig-stat"><span>18.5k</span>Seguid.</div>
                             <div class="ig-stat"><span>124</span>Seguidos</div>
@@ -679,12 +692,12 @@
                             👇 Agenda tu valoración aquí
                         </div>
                         <div class="ig-grid">
-                            <img src="https://images.pexels.com/photos/3775534/pexels-photo-3775534.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 1">
-                            <img src="https://images.pexels.com/photos/3845558/pexels-photo-3845558.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 2">
-                            <img src="https://images.pexels.com/photos/3985304/pexels-photo-3985304.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 3">
-                            <img src="https://images.pexels.com/photos/5082567/pexels-photo-5082567.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 4">
-                            <img src="https://images.pexels.com/photos/3736780/pexels-photo-3736780.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 5">
-                            <img src="https://images.pexels.com/photos/5938352/pexels-photo-5938352.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Grid 6">
+                            <img src="https://images.pexels.com/photos/4167541/pexels-photo-4167541.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Tratamiento 1">
+                            <img src="https://images.pexels.com/photos/5082553/pexels-photo-5082553.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Tratamiento 2">
+                            <img src="https://images.pexels.com/photos/3845548/pexels-photo-3845548.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Tratamiento 3">
+                            <img src="https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Tratamiento 4">
+                            <img src="https://images.pexels.com/photos/4483327/pexels-photo-4483327.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Tratamiento 5">
+                            <img src="https://images.pexels.com/photos/5355889/pexels-photo-5355889.jpeg?auto=compress&cs=tinysrgb&w=300&q=80" alt="Tratamiento 6">
                         </div>
                     </div>
                     <div class="mockup-overlay">
