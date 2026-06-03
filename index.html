@@ -250,10 +250,10 @@
         /* ==========================================================================
            5. TRUST BAR (MÉTRICAS DE AGENCIA)
            ========================================================================== */
-        .trust-bar { background-color: var(--charcoal); padding: 40px 0; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); overflow: hidden; position: relative; display: flex; }
-        .marquee-wrapper { display: flex; width: 200%; }
-        .marquee-content { display: flex; width: 50%; justify-content: space-around; animation: scrollMarquee 20s linear infinite; align-items: center; }
-        .trust-item { text-align: center; padding: 0 40px; }
+        .trust-bar { background-color: var(--charcoal); padding: 40px 0; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); overflow: hidden; display: flex; flex-wrap: nowrap; }
+        .marquee-wrapper { display: flex; width: max-content; }
+        .marquee-content { display: flex; width: max-content; animation: scrollMarquee 25s linear infinite; }
+        .trust-item { text-align: center; padding: 0 50px; }
         .trust-item h3 { font-family: var(--font-display); font-size: 34px; color: var(--pure-white); font-weight: 600; white-space: nowrap; }
         .trust-item p { font-family: var(--font-body); color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; white-space: nowrap; }
         @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
@@ -356,8 +356,11 @@
         .booking-container-split { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
         
         .booking-card-form { background-color: var(--charcoal-light); padding: 60px 50px; box-shadow: 0 40px 80px rgba(0,0,0,0.8); border-radius: 4px; border-top: 4px solid var(--gold); }
+        .form-title { font-family: var(--font-display); font-size: 26px; text-align: center; margin-bottom: 5px; color: var(--pure-white); }
+        .form-subtitle { font-size: 11px; text-align: center; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); }
         .luxury-input { background-color: var(--obsidian); border: 1px solid rgba(255,255,255,0.1); padding: 18px 20px; font-family: var(--font-body); font-size: 14px; width: 100%; transition: var(--transition-smooth); border-radius: 0; color: var(--pure-white); }
         .luxury-input:focus { border-color: var(--gold); box-shadow: 0 5px 20px var(--gold-glow); }
+        .luxury-input.select-input { cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 20px center; background-size: 12px auto; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         
         .submit-luxury-btn { font-family: var(--font-body); background: var(--gold); color: var(--obsidian); border: none; padding: 22px; width: 100%; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; transition: var(--transition-smooth); margin-top: 20px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; }
@@ -428,8 +431,22 @@
             
             .cards-container-grid { grid-template-columns: 1fr; }
             .experience-badge { position: relative; bottom: 0; right: 0; width: 100%; max-width: 100%; margin-top: -30px; }
-            .booking-card-form { padding: 40px 20px; }
-            .form-row { grid-template-columns: 1fr; }
+            
+            /* Mejoras Móvil Auditoría & Trust Bar */
+            .trust-item { padding: 0 25px; }
+            .trust-item h3 { font-size: 24px; }
+            .trust-item p { font-size: 9px; }
+            
+            .booking-card-form { padding: 35px 20px; }
+            .form-title { font-size: 22px; }
+            .form-row { grid-template-columns: 1fr; gap: 15px; }
+            .luxury-input { padding: 15px 16px; font-size: 13px; }
+            .scheduling-ui { padding: 15px; }
+            .calendar-grid { gap: 4px; }
+            .cal-day { padding: 8px 0; font-size: 11px; }
+            .time-slots { gap: 8px; margin-top: 15px; }
+            .time-slot { padding: 10px; font-size: 11px; }
+            
             .footer-bottom-bar { flex-direction: column; text-align: center; gap: 15px; }
             .dept-grid { grid-template-columns: 1fr; }
             .promo-banner h3 { font-size: 20px; }
@@ -660,8 +677,8 @@
             </div>
 
             <div class="booking-card-form reveal" style="transition-delay: 0.3s;">
-                <h3 style="font-family:var(--font-display); font-size:26px; text-align:center; margin-bottom:5px; color: white;">Solicita una Auditoría</h3>
-                <p style="font-size:11px; text-align:center; margin-bottom:30px; text-transform:uppercase; letter-spacing:1px; color: var(--gold);">Reunión Estratégica por Zoom</p>
+                <h3 class="form-title">Solicita una Auditoría</h3>
+                <p class="form-subtitle">Reunión Estratégica por Zoom</p>
                 
                 <!-- Formulario estructurado para B2B (Filtro de clientes) -->
                 <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Solicitud recibida! Analizaremos tus datos y te contactaremos para agendar la llamada de descubrimiento.');">
@@ -694,7 +711,7 @@
                             <input type="tel" class="luxury-input" placeholder="WhatsApp corporativo" required>
                         </div>
                         <div>
-                            <select class="luxury-input" required style="cursor:pointer; height:56px;">
+                            <select class="luxury-input select-input" required>
                                 <option value="">Facturación mensual aproximada...</option>
                                 <option value="inicio">Menos de $5.000 USD</option>
                                 <option value="escala">$5.000 - $15.000 USD</option>
