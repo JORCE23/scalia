@@ -312,6 +312,18 @@
         .card-body-content p { font-family: var(--font-body); color: var(--silver-text); font-size: 14px; margin-bottom: 20px; }
 
         /* ==========================================================================
+           7.2. BRANDING & INSTAGRAM (AUTORIDAD)
+           ========================================================================== */
+        .branding-section { padding: 120px 8%; background-color: var(--charcoal-light); position: relative; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .branding-visual-wrapper { display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .mobile-mockup { width: 320px; height: 620px; background: var(--obsidian); border-radius: 40px; border: 12px solid var(--charcoal); box-shadow: 0 40px 80px rgba(0,0,0,0.9), 0 0 50px var(--gold-glow); position: relative; overflow: hidden; }
+        .mockup-inner-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); transition: var(--transition-smooth); }
+        .mobile-mockup:hover .mockup-inner-img { filter: brightness(1.1); transform: scale(1.05); }
+        .mockup-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 25px 30px 25px; background: linear-gradient(to top, rgba(10,10,10,0.95) 20%, transparent); display: flex; flex-direction: column; gap: 15px; z-index: 2; }
+        .mockup-header { display: flex; align-items: center; gap: 10px; color: var(--pure-white); font-weight: 600; font-family: var(--font-body); font-size: 15px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
+        .mockup-btn { background: var(--gold); color: var(--obsidian); padding: 15px; text-align: center; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+
+        /* ==========================================================================
            7.5. BANNER DE ANUNCIO & DEPARTAMENTOS
            ========================================================================== */
         .promo-banner { background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark)); padding: 35px 5%; text-align: center; color: var(--obsidian); box-shadow: 0 10px 40px var(--gold-glow); position: relative; z-index: 10; }
@@ -445,6 +457,7 @@
         <nav>
             <a href="#filosofia">El Problema</a>
             <a href="#ecosistema">Ecosistema</a>
+            <a href="#branding">Autoridad</a>
             <a href="#metodo">Metodología</a>
             <button class="nav-btn" onclick="document.querySelector('#auditoria').scrollIntoView({behavior: 'smooth'});">Solicitar Auditoría</button>
         </nav>
@@ -550,6 +563,36 @@
                     <span class="card-badge">Fase 3: Escalamiento</span>
                     <h3>Datos y Automatización</h3>
                     <p>Aplicamos Business Intelligence (BI) y automatizamos tu CRM para medir el ROI exacto de cada campaña y asegurar la retención de pacientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANDING Y AUTORIDAD (INSTAGRAM & LANDING PAGES) -->
+    <section class="branding-section" id="branding">
+        <div class="split-grid" style="align-items: center;">
+            <div class="split-content-pane reveal">
+                <span class="section-header-tag">Autoridad Digital</span>
+                <h2 class="section-main-title">Tu imagen es <span class="shimmer-text">tu activo más caro</span></h2>
+                <p style="margin-bottom: 30px; font-size: 16px;">En el sector estético de alto valor, los pacientes no solo compran un tratamiento; compran al especialista. Transformamos tu <strong>Instagram</strong> y tu <strong>Presentación Personal</strong> en un imán de autoridad.</p>
+                <ul class="feature-bullets">
+                    <li><i class="fa-brands fa-instagram"></i><div><strong>Dominio en Instagram:</strong> Estrategias de contenido estético y embudos visuales que convierten seguidores curiosos en pacientes decididos.</div></li>
+                    <li><i class="fa-solid fa-id-card-clip"></i><div><strong>Personal Branding:</strong> Proyectamos tu experiencia médica en Landing Pages de lujo que funcionan como el lobby digital de tu clínica.</div></li>
+                    <li><i class="fa-solid fa-mobile-screen"></i><div><strong>Optimización Móvil 100%:</strong> El 95% de tus pacientes te verán desde su celular. Cada pixel y video está diseñado para impresionar y agendar sin fricción.</div></li>
+                </ul>
+            </div>
+            <div class="branding-visual-wrapper reveal" style="transition-delay: 0.2s;">
+                <div class="mobile-mockup floating-img">
+                    <!-- Imagen de médico estético / estética premium para el celular -->
+                    <img src="https://images.pexels.com/photos/5082567/pexels-photo-5082567.jpeg?auto=compress&cs=tinysrgb&w=600&q=80" alt="Instagram and Landing Page Mobile view" class="mockup-inner-img">
+                    <div class="mockup-overlay">
+                        <div class="mockup-header"><i class="fa-brands fa-instagram" style="color:var(--gold); font-size:22px;"></i> <span>@tu.clinica.premium</span></div>
+                        <div class="mockup-btn">Agendar Cita en WhatsApp</div>
+                    </div>
+                </div>
+                <div class="experience-badge" style="bottom: 20px; left: -20px; right: auto; padding: 25px; max-width: 250px;">
+                    <i class="fa-solid fa-star" style="color:var(--gold); font-size: 24px; margin-bottom: 10px;"></i>
+                    <p style="font-size: 13px; line-height: 1.5;">Elevamos la percepción de valor para que el precio deje de ser una objeción.</p>
                 </div>
             </div>
         </div>
